@@ -25,10 +25,8 @@ function checkout() {
     if (totalAmount === 0) {
         alert("Giỏ hàng của bạn trống. Vui lòng chọn vé trước khi thanh toán.");
     } else {
-        alert(`Tổng số tiền thanh toán là: ${totalAmount.toLocaleString()} VND`);
-        // Reset giỏ hàng sau khi thanh toán
-        totalPriceElement.dataset.total = 0;
-        totalPriceElement.innerText = "Tổng tiền: 0 VND";
+        // Chuyển hướng đến trang checkout.html và truyền tổng tiền qua URL
+        window.location.href = `checkout.html?total=${totalAmount}`;
     }
 }
 
@@ -36,7 +34,6 @@ function logout() {
     const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất?");
     if (confirmLogout) {
         alert("Bạn đã đăng xuất thành công!");
-        // Chuyển hướng hoặc thực hiện hành động đăng xuất
         window.location.href = "Sign In.html";
     }
 }
